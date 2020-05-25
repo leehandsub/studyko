@@ -3,6 +3,7 @@ package com.example.myapplication
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,13 +19,13 @@ class MainActivity : AppCompatActivity() {
         val btn_event2 = findViewById<Button>(R.id.button3)
 
         btn_event.setOnClickListener{
-            btn_event.setText(cnt_1++.toString())
+            textView4.setText(cnt_1++.toString())
         }
         btn_event1.setOnClickListener{
-            btn_event1.setText(cnt_2++.toString())
+            textView5.setText(cnt_2++.toString())
         }
         btn_event2.setOnClickListener{
-            btn_event2.setText(cnt_3++.toString())
+            textView6.setText(cnt_3++.toString())
         }
 
     }
