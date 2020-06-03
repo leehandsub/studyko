@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
 
 
         button.setOnClickListener{
-            edit.clearComposingText()
+            edit.setText("")
             Toast.makeText(this,edit.text.toString(),Toast.LENGTH_SHORT).show()//토스트 보여주기
             textView.setText(edit.text.toString())
         }
