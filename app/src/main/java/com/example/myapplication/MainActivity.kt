@@ -2,7 +2,9 @@ package com.example.myapplication
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -11,21 +13,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        var cnt_1=0
-        var cnt_2=0
-        var cnt_3=0
-        val btn_event = findViewById<Button>(R.id.button)
-        val btn_event1 = findViewById<Button>(R.id.button2)
-        val btn_event2 = findViewById<Button>(R.id.button3)
+        //val btn_event = findViewById<Button>(R.id.button)
 
-        btn_event.setOnClickListener{
-            textView4.setText(cnt_1++.toString())
-        }
-        btn_event1.setOnClickListener{
-            textView5.setText(cnt_2++.toString())
-        }
-        btn_event2.setOnClickListener{
-            textView6.setText(cnt_3++.toString())
+
+        button.setOnClickListener{
+            edit.setText("")
+            Toast.makeText(this,edit.text.toString(),Toast.LENGTH_SHORT).show()//토스트 보여주기
+            textView.setText(edit.text.toString())
         }
 
     }
