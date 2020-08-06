@@ -15,8 +15,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        Log.i("activity","oncreate call")
-
         btn.setOnClickListener {
             val check1 = ck1.isChecked
             val check2 = ck2.isChecked
