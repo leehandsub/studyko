@@ -1,4 +1,4 @@
-package com.example.studyko
+package com.example.studyko.model
 
 import com.google.gson.annotations.SerializedName
 
