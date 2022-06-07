@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.studyko.model.Banner
 import com.example.studyko.model.Title
-import com.example.studyko.repository.HomeRepository
+import com.example.studyko.repository.home.HomeRepository
 
 
 class HomeViewModel(private val homeRepository: HomeRepository) : ViewModel() {

@@ -1,4 +1,4 @@
-package com.example.studyko.repository
+package com.example.studyko.repository.home
 
 import com.example.studyko.AssetLoader
 import com.example.studyko.model.HomeData
