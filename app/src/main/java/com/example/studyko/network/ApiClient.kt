@@ -2,11 +2,13 @@ package com.example.studyko.network
 
 import com.example.studyko.model.Category
 import com.example.studyko.model.CategoryDetail
+import com.example.studyko.model.Product
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.Path
 
 interface ApiClient {
 
@@ -14,7 +16,8 @@ interface ApiClient {
     suspend fun getCategories() : List<Category>
     @GET("fashion_female.json")
     suspend fun getCategoryDetail(): CategoryDetail
-
+    @GET("products/{productId}.json")
+    suspend fun getProductDetail(@Path("productId") productId: String): Product
     companion object{
 
         private const val baseUrl = "https://shoppi-f9dfe-default-rtdb.asia-southeast1.firebasedatabase.app/"
