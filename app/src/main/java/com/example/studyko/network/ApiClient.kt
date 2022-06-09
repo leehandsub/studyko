@@ -1,6 +1,7 @@
 package com.example.studyko.network
 
 import com.example.studyko.model.Category
+import com.example.studyko.model.CategoryDetail
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -11,6 +12,8 @@ interface ApiClient {
 
     @GET("categories.json")
     suspend fun getCategories() : List<Category>
+    @GET("fashion_female.json")
+    suspend fun getCategoryDetail(): CategoryDetail
 
     companion object{
 
