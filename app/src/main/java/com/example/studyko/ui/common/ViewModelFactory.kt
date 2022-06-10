@@ -14,6 +14,7 @@ import com.example.studyko.repository.home.HomeAssetDataSource
 import com.example.studyko.repository.home.HomeRepository
 import com.example.studyko.repository.productdetail.ProductDetailRemoteDataSource
 import com.example.studyko.repository.productdetail.ProductDetailRepository
+import com.example.studyko.ui.cart.CartViewModel
 import com.example.studyko.ui.category.CategoryViewModel
 import com.example.studyko.ui.categorydetail.CategoryDetailViewModel
 import com.example.studyko.ui.home.HomeViewModel
@@ -37,7 +38,10 @@ class ViewModelFactory(private val context: Context): ViewModelProvider.Factory 
             }
             modelClass.isAssignableFrom(ProductDetailViewModel::class.java) -> {
                 val repository = ProductDetailRepository(ProductDetailRemoteDataSource(ServiceLocator.provideApiClient()))
-                ProductDetailViewModel(repository) as T
+                ProductDetailViewModel(repository, ServiceLocator.provideCartRepository(context)) as T
+            }
+            modelClass.isAssignableFrom(CartViewModel::class.java) -> {
+                CartViewModel(ServiceLocator.provideCartRepository(context)) as T
             }
             else -> {
                 throw IllegalArgumentException("Failed to create ViewModel: ${modelClass.name}")

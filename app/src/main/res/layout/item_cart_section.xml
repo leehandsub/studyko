@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="item"
+            type="com.example.studyko.model.CartItem" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        app:cardBackgroundColor="@color/shoppi_white"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="2dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <CheckBox
+                android:id="@+id/checkboxCartItem"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="@drawable/selector_checkbox"
+                android:button="@null"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:checked="true" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/ivCartItemThumbnail"
+                imageUrl="@{item.thumbnailImageUrl}"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="8dp"
+                android:contentDescription="@string/description_cart_item_thumbnail"
+                app:layout_constraintStart_toEndOf="@id/checkboxCartItem"
+                app:layout_constraintTop_toTopOf="parent"
+                app:shapeAppearanceOverlay="@style/Circle" />
+
+            <TextView
+                android:id="@+id/tvCartItemLabel"
+                style="@style/TextCaption1"
+                android:text="@{item.label}"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp"
+                app:layout_constraintEnd_toStartOf="@id/btnDeleteCartItem"
+                app:layout_constraintStart_toEndOf="@id/ivCartItemThumbnail"
+                app:layout_constraintTop_toTopOf="@id/ivCartItemThumbnail"
+                tools:text="페이크 레더 자켓 (블랙)" />
+
+            <ImageButton
+                android:id="@+id/btnDeleteCartItem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_delete"
+                android:contentDescription="@string/description_btn_delete_cart_item"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvCartItemType"
+                style="@style/TextCaption1.Grey01"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="@{item.type}"
+                app:layout_constraintEnd_toEndOf="@id/tvCartItemLabel"
+                app:layout_constraintStart_toStartOf="@id/tvCartItemLabel"
+                app:layout_constraintTop_toBottomOf="@id/tvCartItemLabel"
+                tools:text="옵션 : Free" />
+
+            <ImageButton
+                android:id="@+id/btnMinusCartItem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/ic_minus"
+                android:contentDescription="@string/description_btn_minus_cart_item"
+                app:layout_constraintStart_toStartOf="@id/tvCartItemType"
+                app:layout_constraintTop_toBottomOf="@id/tvCartItemType" />
+
+            <TextView
+                android:id="@+id/tvCartItemAmount"
+                style="@style/TextSubtitle2.Black02.Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="@{String.valueOf(item.amount)}"
+                app:layout_constraintBottom_toBottomOf="@id/btnMinusCartItem"
+                app:layout_constraintEnd_toStartOf="@id/btnPlusCartItem"
+                app:layout_constraintStart_toEndOf="@id/btnMinusCartItem"
+                app:layout_constraintTop_toTopOf="@id/btnMinusCartItem"
+                tools:text="1" />
+
+            <ImageButton
+                android:id="@+id/btnPlusCartItem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:background="@drawable/ic_plus"
+                android:contentDescription="@string/description_btn_plus_cart_item"
+                app:layout_constraintStart_toEndOf="@id/tvCartItemAmount"
+                app:layout_constraintTop_toTopOf="@id/btnMinusCartItem" />
+
+            <TextView
+                android:id="@+id/tvCartItemPrice"
+                style="@style/TextSubtitle1"
+                priceAmount="@{item.price}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/btnPlusCartItem"
+                tools:text="99,900원" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>
